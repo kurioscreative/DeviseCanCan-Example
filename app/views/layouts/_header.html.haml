@@ -1,0 +1,10 @@
+%h1 Devise & CanCan Roles Authentication
+%nav
+  %ul
+    %li= link_to "Articles", articles_path
+    %li= link_to "Accounts", accounts_path if can? :manage, User
+    - if current_user
+      %li= link_to "Sign Out", logout_path
+    - else
+      %li= link_to "Sign In", new_user_session_path
+      %li= link_to "Register", new_user_registration_path
